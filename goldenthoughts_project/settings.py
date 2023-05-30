@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'randomthought.apps.RandomthoughtConfig'
+    'random_thought.apps.RandomThoughtConfig'
 
 
 ]

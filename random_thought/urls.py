@@ -1,6 +1,6 @@
 from django.urls import path
 
-from randomthought import views
+from random_thought import views
 
 urlpatterns = [
     path('thought/', views.thought),

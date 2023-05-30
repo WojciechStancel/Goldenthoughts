@@ -15,10 +15,12 @@ thought_list = [
 
 
 ]
+
+
 def thought(request):
     return render(
         request,
-        'thoughts.html',
+        'random_thought/thoughts.html',
         context={
             'thought': random.choice(thought_list),
         }

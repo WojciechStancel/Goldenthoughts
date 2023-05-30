@@ -1,0 +1,21 @@
+{% extends 'random_thought/layout.html' %}
+
+{% block title %} Strona główna {% endblock title %}
+
+{% block content %}
+
+<style>
+    body{
+    text-align: center;
+    }
+    p{
+        color: green;
+    }</style>
+
+<h1>Złota myśl na dziś: </h1>
+
+
+<p>{{thought}}</p>
+
+
+{% endblock %}

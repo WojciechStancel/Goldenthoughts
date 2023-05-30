@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class RandomthoughtConfig(AppConfig):
+class RandomThoughtConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'randomthought'
+    name = 'random_thought'
