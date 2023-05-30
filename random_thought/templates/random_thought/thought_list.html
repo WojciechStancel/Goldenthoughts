@@ -1,0 +1,52 @@
+{% extends 'random_thought/layout.html' %}
+
+{% block title %} Dodaj myśl {% endblock title %}
+
+{% block content %}
+
+<style>
+
+    h2{
+        text-align: center;
+        margin-top: 20px;
+        font-style: normal;
+
+
+    }
+
+    .add_new_thought{
+        position: absolute;left: 17cm;
+
+    }
+
+    .go_further{
+        font-style: normal;
+
+        position: absolute; bottom: 4cm; left: 18cm;
+
+    }
+    .go_further1{
+
+        margin-left: 3cm;
+    }
+
+
+</style>
+
+ <h2>DODAJ ZŁOTĄ MYŚL</h2>
+
+
+<form method="POST" class="add_new_thought">
+    {% csrf_token %}
+    {{ form.as_p }}
+  <input type="submit" value="Dodaj">
+</form>
+
+
+ <div class="go_further">
+ <h3 style="margin-top: 60px">Wyświetl listę złotych myśli</h3>
+<a href="{% url 'random_thought:list_view'%}"><button class="go_further1">Przejdź do listy </button></a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'random_thought/layout.html' %}
+
+{% block title %} Widok myśli {% endblock title %}
+
+{% block content %}
+<style>
+
+  body{
+    font-style: italic;
+    font-size: x-large;
+  }
+
+  h1{
+    margin-top: 3px;
+    text-align: center;
+
+  }
+
+  .add_thought{
+
+    position: absolute; right: 19cm; left: 19cm; margin-top: 4cm;
+  }
+
+  .list-group{
+    margin-top: 60px;
+    font-style: initial;
+
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+</style>
+<h1>Lista wszystkich myśli</h1>
+
+<ol class="list-group list-group-numbered">
+{% for thought in thoughts %}
+ <li class="list-group-item">
+  <a href="{% url 'random_thought:thought_detail' thought.id %}">{{thought.body}}</a>
+</li>
+{% endfor %}
+
+</ol>
+
+
+
+<a href="{% url 'random_thought:create_thought'%}"><button class="add_thought" >Dodaj swoją myśl</button></a>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'random_thought/layout.html' %}
+
+{% block title %} Wybrana myśl {% endblock title %}
+
+{% block content %}
+
+<style>
+
+
+    h2{
+        text-align: center;
+        font-size: xx-large;
+        margin-top: 100px;
+
+
+    }
+
+
+    p{
+        text-align: center;
+        color: black;
+        font-size: larger;
+        font-style: revert;
+
+    }
+
+    .quotations{
+        font-style: oblique;
+        font-size: xx-large;
+        margin: 105px;
+
+    }
+
+    button{
+
+        position: absolute; left: 21cm; right: 21cm; animation-direction: normal;
+    }
+
+</style>
+
+
+
+
+<h2>Szczegóły myśli</h2>
+
+
+
+
+<p>Dodane przez: {{thought.added_by}}</p>
+<p class="quotations"> {{thought.body}}</p>
+<p class="created">Utworzono: {{thought.created_at}} </p>
+
+<a href="{% url 'random_thought:list_view' %}"><button type="submit">Powrót do listy</button></a>
+
+
+
+
+{% endblock %}

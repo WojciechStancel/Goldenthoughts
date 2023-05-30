@@ -1,27 +1,58 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from random_thought.models import GoldenThougthData
+from .forms import GoldenForm
 import random
 
 # Create your views here.
 
 
-thought_list = [
-    "Życie jest zbyt krótkie, by je marnować, spełniając marzenia innych ludzi. – Oscar Wilde",
-    "Są dwie drogi, aby przeżyć życie. Jedna to żyć tak, jakby nic nie było cudem. Druga to żyć tak, jakby cudem było wszystko. – Albert Einstein",
-    "Kochaj, żeby żyć, i żyj, żeby kochać. – Dionísios Solomós",
-    "Wielu życiowych przegranych to ludzie, którzy nie zdawali sobie sprawy, jak blisko byli sukcesu, kiedy się poddali. – Thomas A. Edison",
-    "Za rok będziesz żałować, że nie zacząłeś dzisiaj. – Karen Lamb",
-    "Nie możesz wybrać sposobu śmierci. Można tylko zdecydować, jak żyć. Teraz. – John Baez",
-    "Krytyka jest czymś, czego możemy łatwo uniknąć nie mówiąc nic, nie robiąc nic i będąc nikim. – Arystoteles",
-
-
-]
-
-
 def thought(request):
+    randomly_thought = GoldenThougthData.objects.all()
     return render(
         request,
         'random_thought/thoughts.html',
         context={
-            'thought': random.choice(thought_list),
+            'thought': random.choice(randomly_thought),
         }
     )
+
+
+def create_thought(request):
+    form = GoldenForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
+    context = {'form': form}
+    return render(request, 'random_thought/thought_list.html', context)
+
+
+def list_view(request):
+
+    thoughts = GoldenThougthData.objects.all()
+
+    return render(request, 'random_thought/thought_list_view.html', context={'thoughts': thoughts})
+
+
+def thought_detail(request, pk):
+
+    thought = GoldenThougthData.objects.get(id=pk)
+
+    return render(request, 'random_thought/thought_detail_view.html', context={'thought': thought})
+
+
+
+
+
+
+
+
+    # if request.method == 'POST':
+    #     updated_thought =request.POST.get('thought')
+    #     if updated_thought:
+    #         thought = updated_thought
+    #         thought.save()
+    #
+    #     return redirect('random_thought:list_view')
+
+
+

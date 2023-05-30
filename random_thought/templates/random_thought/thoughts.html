@@ -5,17 +5,44 @@
 {% block content %}
 
 <style>
-    body{
-    text-align: center;
+    h1{
+        margin-left: auto;
+        margin-right: auto;
+        width: 10em;
+        margin-top: 2cm;
     }
+
     p{
-        color: green;
-    }</style>
+        text-align: center;
+        font-size: x-large;
+        font-style: oblique;
+        padding: 2cm;
+
+
+
+    }
+
+
+    .my_button{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+
+    }
+
+</style>
+
+
 
 <h1>Złota myśl na dziś: </h1>
 
+<p>{{thought.body}}</p>
 
-<p>{{thought}}</p>
+
+
+<a href="{% url 'random_thought:create_thought'%}"><button class="my_button">Dodaj swoją myśl</button></a>
 
 
 {% endblock %}
