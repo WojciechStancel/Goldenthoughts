@@ -1,0 +1,15 @@
+{% extends 'random_thought/layout.html' %}
+
+{% block title %} Widok myśli {% endblock title %}
+
+{% block content %}
+
+<h2>Czy na pewno chcesz usunąć poniższą sentencję? </h2>
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" name="accept" value="TAK">
+  <input type="submit" name="reject" value="NIE">
+
+</form>
+
+{% endblock %}

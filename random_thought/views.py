@@ -54,6 +54,17 @@ def update_thought(request, pk):
 
 
 
+def delete_thought(request, pk):
+    thought = get_object_or_404(GoldenThougthData, id=pk)
+    if request.method == 'GET':
+        return render(request, 'random_thought/confirm_delete.html', context={'thought': thought})
+
+    if request.method == 'POST':
+        answer = request.POST.get('accept')
+        if answer:
+            thought.delete()
+
+        return redirect('random_thought:list_view')
 
 
 

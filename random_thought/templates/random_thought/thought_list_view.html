@@ -45,6 +45,7 @@
  <li class="list-group-item">
   <a href="{% url 'random_thought:thought_detail' thought.id %}">{{thought.body}}</a>
   <a href="{% url 'random_thought:update_thought' thought.id %}"><button class="btn btn-primary">Zmień</button></a>
+  <a href="{% url 'random_thought:delete_thought' thought.id %}"><button class="btn btn-primary">Usuń</button></a>
 </li>
 {% endfor %}
 
