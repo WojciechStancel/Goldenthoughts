@@ -12,7 +12,7 @@ class GoldenThougthData(models.Model):
     body = models.TextField()
     added_by = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Golden Thougth"

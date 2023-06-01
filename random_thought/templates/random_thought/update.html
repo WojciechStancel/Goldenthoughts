@@ -1,0 +1,29 @@
+{% extends 'random_thought/layout.html' %}
+
+{% block title %} Aktualizacja sentencji {% endblock title %}
+
+{% block content %}
+
+<style>
+    h2{
+        text-align: center;
+        margin: 2cm;
+
+    }
+    form{
+        text-align: center;
+    }
+
+</style>
+
+<h2> Zaktualizuj poniższą sentencję </h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Zmodyfikuj">
+
+</form>
+
+
+{% endblock %}

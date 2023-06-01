@@ -40,19 +40,21 @@ def thought_detail(request, pk):
     return render(request, 'random_thought/thought_detail_view.html', context={'thought': thought})
 
 
+def update_thought(request, pk):
+    thought = get_object_or_404(GoldenThougthData, id=pk)
+    form = GoldenForm(request.POST or None, instance=thought)
+    if request.method == 'GET':
+        return render(request, 'random_thought/update.html', context={'form': form, 'thought': thought})
+
+    if request.method == 'POST':
+
+        form.save()
+        return redirect('random_thought:list_view')
 
 
 
 
 
-
-    # if request.method == 'POST':
-    #     updated_thought =request.POST.get('thought')
-    #     if updated_thought:
-    #         thought = updated_thought
-    #         thought.save()
-    #
-    #     return redirect('random_thought:list_view')
 
 
 

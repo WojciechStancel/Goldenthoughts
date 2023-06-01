@@ -44,11 +44,12 @@
 <h2>Szczegóły myśli</h2>
 
 
-
-
 <p>Dodane przez: {{thought.added_by}}</p>
 <p class="quotations"> {{thought.body}}</p>
 <p class="created">Utworzono: {{thought.created_at}} </p>
+{% if thought.modified != thought.created_at%}
+<p class="created">Zmodyfikowano: {{thought.modified}}</p>
+{% endif %}
 
 <a href="{% url 'random_thought:list_view' %}"><button type="submit">Powrót do listy</button></a>
 
