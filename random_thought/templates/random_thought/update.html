@@ -18,12 +18,12 @@
 
 <h2> Zaktualizuj poniższą sentencję </h2>
 
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Zmodyfikuj">
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Potwierdź</button>
 
-</form>
+    </form>
 
 
 {% endblock %}

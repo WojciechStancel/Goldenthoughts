@@ -5,10 +5,11 @@ from django.db import models
 
 class GoldenThougthData(models.Model):
 
-    CHOICES = (('Motywacja', 'Motywacja'),('Melancholia', 'Melancholia'), ('Na poprawę nastroju', 'Na poprawę nastroju'))
+    CHOICES = (('Motywacja', 'Motywacja'),('Melancholia', 'Melancholia'),
+               ('Na poprawę nastroju', 'Na poprawę nastroju'))
 
     name = models.CharField(max_length=80)
-    category = models.CharField(max_length=50 ,choices=CHOICES)
+    category = models.CharField(max_length=50, choices=CHOICES)
     body = models.TextField()
     added_by = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -18,7 +19,7 @@ class GoldenThougthData(models.Model):
         verbose_name = "Golden Thougth"
         verbose_name_plural = "Golden Thougths"
 
-    def __repr__(self):
+    def __str__(self):
         return f'{self.body}'
 
 
